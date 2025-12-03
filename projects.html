@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Projects </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #a855f7;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      background: rgba(168, 85, 247, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #a1a1aa;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      border-radius: 20px 20px 0 0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-number {
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .project-description {
+      color: #d4d4d8;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      background: rgba(168, 85, 247, 0.1);
+      color: #a855f7;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #a1a1aa;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 1rem;
+      }
+    }
+
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(168, 85, 247, 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Toggle Styles */
+    .project-toggles {
+      margin-top: 1.5rem;
+    }
+
+    .toggle-section {
+      margin-bottom: 1rem;
+    }
+
+    .toggle-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+    }
+
+    .toggle-icon {
+      font-size: 1.2rem;
+    }
+
+    .toggle-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .toggle-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-btn.active .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .toggle-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 1px solid rgba(168, 85, 247, 0.2);
+      border-right: 1px solid rgba(168, 85, 247, 0.2);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 0 0 12px 12px;
+      transition: all 0.4s ease;
+      margin-top: -1px;
+    }
+
+    .toggle-content.active {
+        max-height: none;
+        padding: 1.5rem;
+    }
+
+    .toggle-content p {
+      color: #d4d4d8;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #a855f7;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      background: rgba(168, 85, 247, 0.1);
+      border-radius: 8px;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .github-link:hover {
+      background: rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+    }
+
+    .github-icon {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-elements">
+    <div class="floating-element" style="width: 60px; height: 60px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-element" style="width: 40px; height: 40px; top: 60%; right: 10%; animation-delay: 2s;"></div>
+    <div class="floating-element" style="width: 80px; height: 80px; top: 80%; left: 60%; animation-delay: 4s;"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <a href="index.html#projects" class="back-link">
+        ← Back to Portfolio
+      </a>
+      <h1 class="section-title"> PROJECTS </h1>
+      <p class="subtitle">Projects are practical applications of knowledge, where i use my skills and tools to solve real-world problems and showcase what i learned.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">1</div>
+          <h3 class="project-title">Online Retail Recommendation System
+          </h3>
+        </div>
+        
+        <p class="project-description">
+           This Machine Learning project focuses on building an intelligent recommendation system that suggests products to users based on their purchase history and browsing behavior.
+           The main goal is to enhance user experience and increase engagement by applying collaborative and content-based filtering techniques.  
+        </p>
+
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">Jupyter Notebook</span>
+        </div>
+
+        <div class="project-toggles">
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Project Discription</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p> <h1>+ SmartShop: Online Retail Recommendation System using Machine Learning +</h1>
+
+<h2>Project Objective</h2>
+<p>
+  <strong>SmartShop</strong> is a real-world Machine Learning project that demonstrates the power of data-driven personalization in online shopping.
+The goal of this project is to recommend products to users based on their purchase history and browsing patterns, improving engagement and boosting customer satisfaction.
+It showcases your ability to handle end-to-end machine learning workflow from data preprocessing to model deployment using Python and data science techniques.
+</p>
+
+<h2>Project Summary</h2>
+<p>
+  This project involves:
+</p>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Building an intelligent recommendation engine for an e-commerce store.</li>
+  <li>Analyzing user-item interactions to uncover hidden purchase patterns</li>
+  <li>Implementing both Collaborative Filtering and Content-Based Filtering techniques.</li>
+  <li>Evaluating model performance using accuracy metrics and visualization tools.</li>
+</ul>
+
+<p>
+  The final outcome is a system that predicts and displays personalized product suggestions for each user, similar to how Amazon or Netflix recommends items.
+</p>
+
+<h2>Technologies Used</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li><strong>Programming Language:</strong> Python </li>
+  <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn, Matplotlib</li>
+  <li><strong>Techniques:</strong> Collaborative Filtering, Content-Based Filtering</li>
+  <li><strong>Tools:</strong> Jupyter Notebook </li>
+</ul>
+
+<p>
+<h2>Dataset Overview</h2>
+<p>
+  The dataset includes:
+</p>
+<ul style="margin-left: 2rem;"></ul>
+  <li>User IDs, Product IDs, Ratings, and Purchase Histories</li>
+  <li>Realistic retail data simulating customer interactions and preferences</li>
+  <li>Cleaned and structured data ready for machine learning analysis</li>
+</ul>
+
+<p>
+<h2>Implementation Overview</h2>
+
+<ul style="margin-left: 2rem;"></ul>
+  <h4>Data Preparation:</h4>
+  <li>Handled missing values, duplicates, and irrelevant records.</li>
+  <li>Encoded categorical data and normalized numerical values for model compatibility.</li>
+
+  <p>
+  <h4>Feature Engineering:</h4>
+  <li>Extracted features such as user similarity scores, item ratings, and purchase frequency.</li>
+  <li>Built user-item matrices for collaborative filtering analysis.</li>
+  <p>
+
+  <h4>Model Development:</h4>
+
+    <li>Implemented Collaborative Filtering to find similar users and recommend products they liked.</li>
+    <li>Used Content-Based Filtering to match items based on shared attributes and keywords.</li>
+    <li>Combined models to create a Hybrid Recommendation System for better accuracy.</li>
+
+<h2>Evaluation and Visualization:</h2>
+
+<ul style="margin-left: 2rem;"></ul>
+  <li>Evaluated model performance using Precision, Recall, and F1-score.</li>
+  <li>Visualized relationships between users, products, and recommendations with Matplotlib and Seaborn.</li>
+</ul>
+
+<p>
+<h2>Analytical Value</h2>
+<ul style="margin-left: 2rem;"></ul>
+<p> This project mirrors how real-world e-commerce platforms use machine learning to personalize user experiences.</p>
+<h4> It strengthens understanding in:</h4>
+  <li>Customer behavior analytics</li>
+  <li>Personalized recommendation algorithms</li>
+  <li>Predictive modeling for user engagement</li>
+  <li>Practical implementation of AI in business applications</li>
+</ol>
+
+<p>
+
+<h2>Getting Started</h2>
+<ul style="margin-left: 2rem;"></ul>
+<li>1. Ensure Python 3.x is installed on your system.</li>
+<li>2. Clone the project or copy the code files.</li>
+<li>3. Install dependencies using:</li>
+   <p> pip install pandas numpy scikit-learn matplotlib seaborn</p>
+<li>4. Open the project in Jupyter Notebook or Google Colab.</li>
+<li>5. Run each code cell step by step to train and test the model.</li>
+</p>
+<p>
+<h2>Extension Possibilities</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Integrate a web-based UI using Flask or Django for real-time recommendations.</li>
+  <li>Add sentiment analysis on product reviews to improve suggestion accuracy.</li>
+  <li>Connect the system to a SQL or NoSQL database for scalable storage.</li>
+  <li>Deploy the model using Streamlit or FastAPI for user interaction.</li>
+</ul>
+
+<p>
+<h2>Key Takeaways</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Data-driven insights can transform shopping experiences through personalization.</li>
+  <li>Hands-on implementation of machine learning algorithms builds real-world problem-solving skills.</li>
+  <li>Combining analytical and programming expertise leads to smart, user-focused solutions.</li>
+</ul>
+
+<p>
+<h2>Contributing</h2>
+<p>
+  Contributions are always welcome!
+  If you have ideas to improve recommendation accuracy or introduce hybrid models, fork the repository and submit a pull request
+</p>
+
+
+                </html>
+
+            </div>
+          </div>
+          
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Technical Details</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p>All the technical steps behind this project, including data cleaning, exploratory data 
+                analysis, feature engineering, model training, and evaluation are fully documented in a 
+                Jupyter Notebook. I haven't included the full notebook here because it contains 
+                visualizations, code cells, and outputs that won’t render properly in this format.
+                
+                <p>
+                    If you're interested in seeing the complete process or even replicating the results step 
+                    by step, you can view or download the notebook from my GitHub repository below:
+                </p>
+                
+                <p>
+                    <a href="https://github.com/Malathi-2007/Online_Retail_Recommendation_System.git" class="github-link" target="_blank">
+                    <span class="github-icon">⭐</span>
+                    View on GitHub
+                    </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">2</div>
+          <h3 class="project-title"> Self-Driving Car Lane Detection
+          </h3>
+        </div>
+        
+        <p class="project-description">
+           This Computer Vision and Deep Learning project focuses on detecting lane boundaries from real-time images or video frames captured by a self-driving car’s camera.
+
+           The goal is to enable safe vehicle navigation by helping autonomous systems accurately identify road lanes under various conditions.
+        </p>
+
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">Google Collab</span>
+        </div>
+
+        <div class="project-toggles">
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Project Discription</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p> <h1>+ Self-Driving Car Lane Detection using Computer Vision +</h1>
+
+<h2>Project Objective</h2>
+<p>
+  The Self-Driving Car Lane Detection project focuses on applying Computer Vision and Deep Learning techniques to automatically detect lane boundaries on roads.</p>
+<p>The main goal is to assist autonomous vehicles in safe navigation by identifying lanes in real time from video input, even under varying lighting and road conditions.</p>
+
+<h2>Project Summary</h2>
+<p>
+  This project demonstrates the process of:
+</p>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Capturing and processing road video frames using OpenCV</li>
+  <li>Applying edge detection and region masking to highlight lanes</li>
+  <li>Using Hough Line Transform and CNN models to detect and mark lane lines</li>
+  <li>Visualizing detected lanes on each frame for smooth, real-time feedback</li>
+</ul>
+
+<p>
+  The outcome is a lane detection pipeline capable of processing live or recorded driving footage and identifying road boundaries accurately.
+</p>
+
+<h2>Technologies Used</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li><strong>Programming Language:</strong> Python </li>
+  <li><strong>Libraries:</strong> OpenCV, NumPy, Matplotlib, TensorFlow</li>
+  <li><strong>Tools:</strong> Google Colab </li>
+</ul>
+
+<p>
+<h2>Implementation Overview</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <h4>1. Data Collection</h4>
+  <p>Collected real-world driving videos and road images from open datasets.
+     Data represented various road types, lighting, and weather conditions to ensure robustness.</p>
+
+  <p>
+  <h4>2. Data Preparation</h4>
+  <li>Converted color frames to grayscale to simplify computations</li>
+  <li>Applied Gaussian Blur to reduce image noise</li>
+  <li>Used Canny Edge Detection to extract lane boundaries</li>
+  <li>Defined a Region of Interest (ROI) to focus on the road area only</li>
+
+  <p>
+  <h4>3. Lane Detection Logic</h4>
+  <li>Implemented Hough Line Transform to identify lane edges</li>
+  <li>Grouped and averaged detected lines to create continuous lane markers</li>
+  <li>Overlaid detected lanes on the original video frames</li>
+  <p>
+
+  <h4>4. Deep Learning Enhancement</h4>
+  <p>Integrated Convolutional Neural Networks (CNNs) to improve detection accuracy under complex conditions such as faded lines, shadows, or curves</p>
+
+  <h4>5. Visualization & Output</h4>
+  <p>Visualized lane boundaries in real time using OpenCV and plotted performance results using Matplotlib.</p>
+
+<p>
+<h2>Analytical Value</h2>
+<ul style="margin-left: 2rem;"></ul>
+<p> This project simulates the core vision system of autonomous vehicles, demonstrating how computer vision and AI can enable real-time environmental understanding.</p>
+<p> This project simulates the core vision system of autonomous vehicles, demonstrating how computer vision and AI can enable real-time environmental understanding.</p>
+
+<p>
+
+<h2>Getting Started</h2>
+<ul style="margin-left: 2rem;"></ul>
+<li>1. Ensure Python and required libraries (OpenCV, NumPy, TensorFlow) are installed.</li>
+<li>2. Clone the project repository or download the source files.</li>
+<li>3. Open the code in Jupyter Notebook or Google Colab.</li>
+<li>4. Run the notebook step by step to process sample road video and view detected lanes in real time.</li>
+</p>
+
+<p>
+<h2>Extension Possibilities</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Integrate object detection (YOLO or SSD) for recognizing vehicles and pedestrians.</li>
+  <li>Apply semantic segmentation (U-Net) for advanced road scene understanding.</li>
+  <li>Deploy the model on an Raspberry Pi or Jetson Nano for real-time embedded testing</li>
+</ul>
+
+<p>
+<h2>Key Takeaways</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Combines Computer Vision and Deep Learning for a real-world application.</li>
+  <li>Strengthens understanding of image preprocessing, edge detection, and CNNs..</li>
+  <li>Demonstrates how AI can be applied to enhance road safety and autonomous systems.</li>
+</ul>
+
+<p>
+<h2>Contributing</h2>
+<p>
+  Have ideas to enhance lane accuracy or integrate obstacle detection?
+Fork the repository, implement your improvements, and submit a pull request!
+</p>
+
+
+                </html>
+
+            </div>
+          </div>
+          
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Technical Details</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p>All the technical steps behind this project, including data cleaning, exploratory data 
+                analysis, feature engineering, model training, and evaluation are fully documented in a 
+                Jupyter Notebook. I haven't included the full notebook here because it contains 
+                visualizations, code cells, and outputs that won’t render properly in this format.
+                
+                <p>
+                    If you're interested in seeing the complete process or even replicating the results step 
+                    by step, you can view or download the notebook from my GitHub repository below:
+                </p>
+                
+                <p>
+                    <a href="https://github.com/Malathi-2007/Self-Driving_Car_Lane_Detection.git" class="github-link" target="_blank">
+                    <span class="github-icon">⭐</span>
+                    View on GitHub
+                    </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+  <script>
+  function toggleSection(button) {
+    const content = button.nextElementSibling;
+    const isActive = content.classList.contains('active');
+
+    // Close all other toggles in the same project card
+    const projectCard = button.closest('.project-card');
+    const allToggleContents = projectCard.querySelectorAll('.toggle-content');
+    const allToggleButtons = projectCard.querySelectorAll('.toggle-btn');
+
+    allToggleContents.forEach(tc => tc.classList.remove('active'));
+    allToggleButtons.forEach(tb => tb.classList.remove('active'));
+
+    // Toggle the clicked section
+    if (!isActive) {
+      content.classList.add('active');
+      button.classList.add('active');
+
+      // Delay the scroll a little to allow content to expand
+      setTimeout(() => {
+        const yOffset = -100; // Adjust this if you have a sticky navbar
+        const y = button.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 200); // delay helps ensure content has rendered
+    }
+  }
+
+  // Add stagger animation to project cards
+  document.addEventListener('DOMContentLoaded', function () {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+      card.style.animation = 'fadeInUp 0.6s ease forwards';
+    });
+  });
+
+  // Fade-in CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card {
+      opacity: 0;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
