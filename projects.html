@@ -346,11 +346,305 @@
       <p class="subtitle">Projects are practical applications of knowledge, where i use my skills and tools to solve real-world problems and showcase what i learned.</p>
     </div>
 
-    <div class="projects-grid">
+     <div class="projects-grid">
       <!-- Project 1 -->
       <div class="project-card">
         <div class="project-header">
           <div class="project-number">1</div>
+          <h3 class="project-title">Nifty100 Financial Analytics</h3>
+        </div>
+        
+        <p class="project-description">
+           This Machine Learning project focuses on building an intelligent recommendation system that suggests products to users based on their purchase history and browsing behavior.
+           The main goal is to enhance user experience and increase engagement by applying collaborative and content-based filtering techniques.  
+        </p>
+
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">NumPy</span>
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">Jupyter Notebook</span>
+        </div>
+
+        <div class="project-toggles">
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Project Discription</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p> <h1>+ Nifty 100 Financial Analytics & Investment Intelligence Platform +</h1>
+
+<h2>Project Objective</h2>
+<p> The
+  <strong>Nifty 100 Financial Analytics & Investment Intelligence Platform</strong> is a comprehensive financial data analytics project designed to analyze the financial performance, business fundamentals, market data, and financial health of Nifty 100 companies.</p>
+<p>The main goal of this project is to transform complex financial datasets into meaningful and easy-to-understand insights using Python, SQL, SQLite, data analysis, visualization, and machine learning.</p>
+<p>The project helps users analyze companies, compare financial performance, study sectors and peer groups, screen companies using financial metrics, and understand important trends in company fundamentals.</p>
+
+<h2>Project Summary</h2>
+<p>
+  This project involves:
+</p>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Collecting and organizing financial data from multiple datasets.</li>
+  <li>Storing and managing structured financial information using SQLite.</li>
+  <li>Cleaning, preprocessing, and transforming financial data using Python and Pandas.</li>
+  <li>Analyzing important financial KPIs and company fundamentals.</li>
+  <li>Performing company, sector, peer-group, and market-cap analysis.</li>
+  <li>Calculating growth metrics such as Revenue CAGR and Free Cash Flow CAGR.</li>
+  <li>Applying K-Means clustering to identify companies with similar financial characteristics.</li>
+  <li>Developing REST APIs using FastAPI to provide structured access to financial data.</li>
+  <li>Building financial screening and comparison functionality.</li>
+  <li>Generating analytical reports and visualizations to communicate financial insights.</li>
+</ul>
+
+<p>
+  The final outcome is an analytical platform that combines financial data management, data analytics, machine learning, APIs, and reporting into a single project.
+</p>
+
+<h2>Technologies Used</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li><strong>Programming Language:</strong> Python </li>
+  <li><strong>Database:</strong> SQLite </li>
+  <li><strong>Data Analysis:</strong> Pandas, Numpy </li>
+  <li><strong>Data Visualization:</strong> Matplotlib </li>
+  <li><strong>Machine Learning:</strong> Scikit-learn </li>
+  <li><strong>API Development:</strong> FastAPI </li>
+  <li><strong>Testing:</strong> Pytest </li>
+  <li><strong>Development Tools:</strong> VS Code, Jupyter Notebook</li>
+  <li><strong>Data Processing:</strong> SQL, Python Data Processing </li>
+</ul>
+
+<p>
+<h2>Dataset Overview</h2>
+<p>The project contains multiple structured datasets related to Nifty 100 companies.</p>
+<p>
+  The database includes information such as:
+</p>
+<ul style="margin-left: 2rem;"></ul>
+  <li>1.Company information</li>
+  <li>2.Sector and sub-sector classification</li>
+  <li>3.Profit & Loss statements</li>
+  <li>4.Balance Sheet data</li>
+  <li>5.Cash Flow statements</li>
+  <li>6.Financial ratios</li>
+  <li>7.Stock price information</li>
+  <li>8.Market capitalization</li>
+  <li>9.Peer groups</li>
+  <li>10.Company analysis</li>
+  <li>11.Financial documents</li>
+  <li>12.Pros and cons / company insights</li>
+</ul>
+<p>These datasets are stored in a relational SQLite database, allowing financial information from different tables to be queried, combined, and analyzed.</p>
+
+ <p><h2>Database Structure</h2></p>
+   <p>The project uses multiple relational tables to organize financial information.</p>
+   <p>Important tables include:</p>
+   <li>companies</li>
+   <li>sectors</li>
+   <li>profit_loss</li>
+   <li>balance_sheet</li>
+   <li>cashflow</li>
+   <li>financial_ratios</li>
+   <li>stock_prices</li>
+   <li>market_cap</li>
+   <li>peer_groups</li>
+   <li>analysis</li>
+   <li>documents</li>
+   <li>prosandcons</li>
+<p>This structure allows financial information to be analyzed from different perspectives while maintaining relationships between companies and their financial data.</p>
+
+
+<p>
+<h2>Implementation Overview</h2>
+
+<ul style="margin-left: 2rem;"></ul>
+  <h4>Data Preparation:</h4>
+  <li>1.Organized financial datasets into structured database tables.</li>
+<li>2.Cleaned and standardized financial records.</li>
+<li>3.Handled missing and null values.</li>
+<li>4.Processed inconsistent financial-period formats.</li>
+<li>5.Normalized company and financial information.</li>
+<li>6.Prepared datasets for analysis and machine learning.</li>
+<li>7.Created relationships between different financial tables.</li>
+
+  <p>
+  <h4>Exploratory Data Analysis</h4>
+  <p>Performed exploratory analysis to understand:</p>
+  <li>Company financial performance</li>
+  <li>Revenue and profit trends</li>
+  <li>Profit margins</li>
+  <li>Debt levels</li>
+  <li>Return on Equity</li>
+  <li>Cash-flow performance</li>
+  <li>Market capitalization</li>
+  <li>Sector distribution</li>
+  <li>Stock-price trends</li>
+  <li>Growth patterns across companies</li>
+  <li>Built user-item matrices for collaborative filtering analysis.</li>
+  <p>Visualizations were used to identify trends, comparisons, and unusual patterns in the financial data.</p>
+            </p>
+  <p>           
+  <h4>Financial KPI Analysis</h4>
+  <p>The project analyzes several important financial indicators, including:</p>
+  <h6>Return on Equity (ROE)</h6>
+     <li>Used to understand how efficiently companies generate returns from shareholders' equity.</li>   
+  <h6>Debt-to-Equity Ratio</h6>
+ <li>Used to understand a company's debt level relative to its equity.</li>
+    <h6>Revenue CAGR</h6>
+      <li>Used to measure the company's revenue growth over a specific period.</li> 
+    <h6>Free Cash Flow CAGR</h6>
+      <li>Used to analyze the growth of free cash flow over time.</li>
+    <h6>Operating Profit Margin</h6>
+      <li>Used to evaluate the profitability of a company's core operations.</li> 
+    <h6>Profit Margins</h6>
+      <li>Used to understand overall profitability and compare companies.</li>
+    <p>These KPIs help provide a more complete picture of a company's financial performance.</p>
+
+    <h4>Company Analysis</h4>
+    <p>The platform provides detailed analysis for individual companies.</p>
+              <p>Users can examine:</p>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <p>    
+  <h4>Model Development:</h4>
+
+    <li>Implemented Collaborative Filtering to find similar users and recommend products they liked.</li>
+    <li>Used Content-Based Filtering to match items based on shared attributes and keywords.</li>
+    <li>Combined models to create a Hybrid Recommendation System for better accuracy.</li>
+
+<h2>Evaluation and Visualization:</h2>
+
+<ul style="margin-left: 2rem;"></ul>
+  <li>Evaluated model performance using Precision, Recall, and F1-score.</li>
+  <li>Visualized relationships between users, products, and recommendations with Matplotlib and Seaborn.</li>
+</ul>
+
+<p>
+<h2>Analytical Value</h2>
+<ul style="margin-left: 2rem;"></ul>
+<p> This project mirrors how real-world e-commerce platforms use machine learning to personalize user experiences.</p>
+<h4> It strengthens understanding in:</h4>
+  <li>Customer behavior analytics</li>
+  <li>Personalized recommendation algorithms</li>
+  <li>Predictive modeling for user engagement</li>
+  <li>Practical implementation of AI in business applications</li>
+</ol>
+
+<p>
+
+<h2>Getting Started</h2>
+<ul style="margin-left: 2rem;"></ul>
+<li>1. Ensure Python 3.x is installed on your system.</li>
+<li>2. Clone the project or copy the code files.</li>
+<li>3. Install dependencies using:</li>
+   <p> pip install pandas numpy scikit-learn matplotlib seaborn</p>
+<li>4. Open the project in Jupyter Notebook or Google Colab.</li>
+<li>5. Run each code cell step by step to train and test the model.</li>
+</p>
+<p>
+<h2>Extension Possibilities</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Integrate a web-based UI using Flask or Django for real-time recommendations.</li>
+  <li>Add sentiment analysis on product reviews to improve suggestion accuracy.</li>
+  <li>Connect the system to a SQL or NoSQL database for scalable storage.</li>
+  <li>Deploy the model using Streamlit or FastAPI for user interaction.</li>
+</ul>
+
+<p>
+<h2>Key Takeaways</h2>
+<ul style="margin-left: 2rem;"></ul>
+  <li>Data-driven insights can transform shopping experiences through personalization.</li>
+  <li>Hands-on implementation of machine learning algorithms builds real-world problem-solving skills.</li>
+  <li>Combining analytical and programming expertise leads to smart, user-focused solutions.</li>
+</ul>
+
+<p>
+<h2>Contributing</h2>
+<p>
+  Contributions are always welcome!
+  If you have ideas to improve recommendation accuracy or introduce hybrid models, fork the repository and submit a pull request
+</p>
+
+
+                </html>
+
+            </div>
+          </div>
+          
+          <div class="toggle-section">
+            <button class="toggle-btn" onclick="toggleSection(this)">
+              <span class="toggle-icon">⚙️</span>
+              <span class="toggle-text">Technical Details</span>
+              <span class="toggle-arrow">▼</span>
+            </button>
+            <div class="toggle-content">
+              <p>All the technical steps behind this project, including data cleaning, exploratory data 
+                analysis, feature engineering, model training, and evaluation are fully documented in a 
+                Jupyter Notebook. I haven't included the full notebook here because it contains 
+                visualizations, code cells, and outputs that won’t render properly in this format.
+                
+                <p>
+                    If you're interested in seeing the complete process or even replicating the results step 
+                    by step, you can view or download the notebook from my GitHub repository below:
+                </p>
+                
+                <p>
+                    <a href="https://github.com/Malathi-2007/Online_Retail_Recommendation_System.git" class="github-link" target="_blank">
+                    <span class="github-icon">⭐</span>
+                    View on GitHub
+                    </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class="projects-grid">
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">2</div>
           <h3 class="project-title">Online Retail Recommendation System
           </h3>
         </div>
